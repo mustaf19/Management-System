@@ -1,0 +1,71 @@
+create table Users(
+    rollno int(20) NOT NULL,
+    rname varchar(20) NOT NULL,
+    lname varchar(20) NOT NULL,
+    dob date NOT NULL,
+    gyear int(4) NOT NULL,
+    password 
+    
+    );
+
+    "ALTER TABLE `users` ADD PRIMARY KEY(`rollno`);
+
+"ALTER TABLE `users` drop `rollno`;
+
+how to set a clomn to auto_increment?
+
+    ALTER TABLE `adminpass` CHANGE `sno` `sno` INT(11) NOT NULL AUTO_INCREMENT, add PRIMARY KEY (`sno`);
+
+
+admin will alter details shown on the students page
+admin can send updates regarding something to only that students it wants to send via his portal
+ex. links, and other details
+
+students can update their queries
+
+$a = "hello";
+$b = "yellow";
+//concat two strings
+$res = $a.$b;
+
+
+===============
+
+<!-- SELECT * FROM `placementdb`.`users` WHERE rollno='1814310124' AND password='e3a034574a737501fa579850ffe9b139'; -->
+
+==============
+
+SELECT *
+FROM `placementdb`.`users`
+FULL OUTER JOIN `placementdb`.`companydata`
+ON `placementdb`.`users`.rollno = `placementdb`.`companydata`.rollno;
+
+SELECT *
+FROM users
+FULL OUTER JOIN companydata
+ON users.rollno = companydata.rollno;
+
+==============
+
+every refresh should have session start t conitnue with the session!!
+
+==============
+
+inline php shpuld contain '' 
+ex:
+<div style="text-align: center;">
+        <h1><?php echo "$name";?></h1>
+
+    </div>
+
+    ==========
+
+CREATE TABLE `placementdb`.`updates` (`sno` INT NOT NULL AUTO_INCREMENT , `companyname` VARCHAR(1000) NOT NULL , `pkg` FLOAT NOT NULL , `lastdate` DATE NOT NULL , `maxpkg` FLOAT NOT NULL , `comment` TEXT NULL DEFAULT NULL , PRIMARY KEY (`sno`)) ENGINE = InnoDB; 
+
+============
+$details = mysqli_fetch_array($res); 
+                echo "{$details[0]}";  // when fetching single things use indexes than column's Name
+======          
+
+
+
