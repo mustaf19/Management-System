@@ -1,0 +1,103 @@
+create table Users(
+    rollno int(20) NOT NULL,
+    rname varchar(20) NOT NULL,
+    lname varchar(20) NOT NULL,
+    dob date NOT NULL,
+    gyear int(4) NOT NULL,
+    password 
+    
+    );
+
+    "ALTER TABLE `users` ADD PRIMARY KEY(`rollno`);
+
+"ALTER TABLE `users` drop `rollno`;
+
+how to set a clomn to auto_increment?
+
+    ALTER TABLE `adminpass` CHANGE `sno` `sno` INT(11) NOT NULL AUTO_INCREMENT, add PRIMARY KEY (`sno`);
+
+
+admin will alter details shown on the students page
+admin can send updates regarding something to only that students it wants to send via his portal
+ex. links, and other details
+
+students can update their queries
+
+$a = "hello";
+$b = "yellow";
+//concat two strings
+$res = $a.$b;
+
+
+===============
+
+<!-- SELECT * FROM `placementdb`.`users` WHERE rollno='1814310124' AND password='e3a034574a737501fa579850ffe9b139'; -->
+
+==============
+
+SELECT *
+FROM `placementdb`.`users`
+FULL OUTER JOIN `placementdb`.`companydata`
+ON `placementdb`.`users`.rollno = `placementdb`.`companydata`.rollno;
+
+SELECT *
+FROM users
+FULL OUTER JOIN companydata
+ON users.rollno = companydata.rollno;
+
+==============
+
+every refresh should have session start t conitnue with the session!!
+
+==============
+
+inline php shpuld contain '' 
+ex:
+<div style="text-align: center;">
+        <h1><?php echo "$name";?></h1>
+
+    </div>
+
+    ==========
+
+CREATE TABLE `placementdb`.`updates` (`sno` INT NOT NULL AUTO_INCREMENT , `companyname` VARCHAR(1000) NOT NULL , `pkg` FLOAT NOT NULL , `lastdate` DATE NOT NULL , `maxpkg` FLOAT NOT NULL , `comment` TEXT NULL DEFAULT NULL , PRIMARY KEY (`sno`)) ENGINE = InnoDB; 
+
+============
+$details = mysqli_fetch_array($res); 
+                echo "{$details[0]}";  // when fetching single things use indexes than column's Name
+======      
+
+echo "<p>Updates for you!</p>";
+                // require_once "dbcon.php";
+                $rollno = $_SESSION['rollno'];
+                echo "$rollno";
+                $sql = "SELECT max(distinct(pkg)) from companydata where rollno='$rollno'";
+                $res = mysqli_query($conn,$sql);
+                $count = mysqli_num_rows($res);
+
+                $details = mysqli_fetch_array($res); 
+                if($details[0]) {
+                    
+                    // echo "{$details[0]}";  // when fetching single things use indexes than column's Name
+                    $mx = $details[0]+0.0;
+                    $s = "SELECT * from `placementdb`.`updates` WHERE maxpkg=$mx";
+                    $r = mysqli_query($conn,$s);
+                    $c = mysqli_num_rows($r);
+                    if($c>0){
+                        while($details2 = mysqli_fetch_array($r)){
+                        echo"<p>{$details2['comment']}</p>";
+                        echo"<a href='{$details2['links']}'>{$details2['links']}</a>";
+                        echo"<br><br>";
+                        }
+                    }
+                    
+                }
+============
+
+session_destroy();  //if session is not started what will happen.. to session_destroy()
+            header("location:index.php");
+
+==============    
+
+
+
